@@ -15,69 +15,58 @@ import java.awt.event.ActionEvent;
 
 
 public class ServerFrame extends JFrame{// Extends all windows features
-	
+	public JLabel serverLabel;
 
-	
-	private JLabel connectLabel=new JLabel();
-	private JTextArea box1= new JTextArea(5,20);
-	
-	//private TCPServer cool=new TCPServer();
-	
-
-	//Constructor
 	public ServerFrame() {
-		
-		super("Server TCP"); //gives title
+		super("Chatting Server"); //gives title
 		//types of layout you can use: FlowLayout, GridLayout ...
-		setLayout(new FlowLayout()); //gives default layout
-		defaultConnection();
+		setLayout(null); //gives default layout
+		defaultServerUI();
 		
 	}
 	
 
 	public void writeinBox(String input) {
 	
-			box1.append(input + '\n');	
+			//box1.append(input + '\n');	
 	
 		}
 		
 	
 	
 	
-	public void defaultConnection() {
+	public void defaultServerUI() {
 		
-		connectLabel.setText("Connection Status: Not Connected");
-		connectLabel.setForeground(Color.RED);
+		setSize(400,400);
+		serverLabel = new JLabel("No Clients Connected");
+		serverLabel.setBounds(130, 50, 150 ,30);
+		serverLabel.setForeground(Color.RED);
+		add(serverLabel);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
+		setVisible(true);
 	}
 	
 
 	//Method checks what connection status it is and outputs it with its designated color
 	public void setConnection(String connect) {
 		
-		if(connect.equals("Not Connected")) {
-			connectLabel.setText("Connection Status: "+ connect );
-			//connectLabel= new JLabel("Connection Status: "+ connect );
-			connectLabel.setForeground(Color.RED);
-			
-		}else {
-			connectLabel.setText("Connection Status: "+ connect );
-			//connectLabel= new JLabel("Connection Status: "+ connect );
-			connectLabel.setForeground(Color.BLUE);
+//		if(connect.equals("Not Connected")) {
+//			connectLabel.setText("Connection Status: "+ connect );
+//			//connectLabel= new JLabel("Connection Status: "+ connect );
+//			connectLabel.setForeground(Color.RED);
+//			
+//		}else {
+//			connectLabel.setText("Connection Status: "+ connect );
+//			//connectLabel= new JLabel("Connection Status: "+ connect );
+//			connectLabel.setForeground(Color.BLUE);
 			
 		}
 		
-	}
+
 	
 	//Method that adds the different features and makes the frame visible
-	public void displayFrame() {
-		
-		add(connectLabel);
-		add(box1);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(275,180);
-		setVisible(true);
-		
-	}	
+
 
 	public static void main(String[] args) {
 	
