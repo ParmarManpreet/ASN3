@@ -77,10 +77,8 @@ public class MasterServer {
 		//we can't close loop because we have an infinite loop to keep socket open
 		//welcomeSocket.close();
 //		
-    }catch(Exception ex) {
-//	
-    }
-}
+	    }catch(Exception ex) {}
+	}
 	
 	private void confirmConnect(String connect) {
 		if(connect.equals("Connected")) {
@@ -95,11 +93,11 @@ public class MasterServer {
 	            outputToClient.writeBytes(sentence);
 			} catch (IOException e) {}
 		}else {
-			updateServerUI(connect);
-			
+			updateServerUI(connect);	
 		}
 	}
 
+	//updates server UI by adding or removing number of clients connected
 	public void updateServerUI(String connect){
 		if(connect.equals("Connected")) {
 			clientNumb++;
@@ -126,14 +124,8 @@ public class MasterServer {
 		}
 	}
 	public static void main(String[] args) {
-		
-	
-	//	pushF1.displayFrame();
 		MasterServer runServer= new MasterServer();
-		//runServer.Server();
 
-		
-		
 }
 
 }
